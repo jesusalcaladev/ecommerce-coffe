@@ -1,0 +1,24 @@
+{
+  "name": "ecommerce-coffe",
+  "version": "1.0.0",
+  "description": "Coffee ecommerce project for strapi",
+  "repository": "https://github.com/fluwdev/ecommerce-coffe.git",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "fluwdev",
+    "ecommerce",
+    "strapi",
+    "nextjs"
+  ],
+  "bugs": "https://github.com/fluwdev/ecommerce-coffe/issues",
+  "homepage": "https://github.com/fluwdev/ecommerce-coffe#readme",
+  "engines": {
+    "node": ">=14.17.0",
+    "npm": ">=6.13.4",
+    "pnpm": ">=6.24.3"
+  },
+  "author": "fluwdev",
+  "license": "MIT"
+}
