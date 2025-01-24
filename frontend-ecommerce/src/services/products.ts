@@ -5,3 +5,9 @@ export const getProductsFeatured = async () => {
   const response = await GET(url)
   return response.data
 }
+
+export const getCategory = async () => {
+  const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/categories?populate=*`
+  const response = await GET(url)
+  return response.data
+}
