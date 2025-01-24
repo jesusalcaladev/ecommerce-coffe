@@ -1,5 +1,8 @@
+'use client'
+
 import { Card, CardContent } from './ui/card'
 import { Carousel, CarouselContent, CarouselItem } from './ui/carousel'
+import Autoplay from 'embla-carousel-autoplay'
 
 const dataCaroucel = [
   {
@@ -27,15 +30,28 @@ const dataCaroucel = [
 
 export default function CaroucelTextBanner() {
   return (
-    <div>
-      <Carousel opts={{ align: 'start' }} className='w-full max-w-4xl mx-auto'>
+    <div className='bg-gray-400/30 dark:bg-primary'>
+      <Carousel
+        opts={{ align: 'start' }}
+        plugins={[
+          Autoplay({
+            delay: 5000,
+          }),
+        ]}
+        className='w-full max-w-4xl mx-auto'
+      >
         <CarouselContent>
           {dataCaroucel.map((item) => (
             <CarouselItem key={item.id}>
               <div>
                 <Card className='shadow-none border-none bg-transparent '>
                   <CardContent className='flex flex-col justify-center p-2 items-center text-center'>
-                    <p>{item.title}</p>
+                    <p className='sm:text-lg text-wrap dark:text-secondary'>
+                      {item.title}
+                    </p>
+                    <p className='sm:text-sm text-xs text-wrap dark:text-secondary'>
+                      {item.description}
+                    </p>
                   </CardContent>
                 </Card>
               </div>
