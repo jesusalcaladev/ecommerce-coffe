@@ -3,7 +3,7 @@ import { Urbanist } from 'next/font/google'
 import './globals.css'
 import Navbar from '../components/navigation/navbar'
 import Footer from '@/components/footer'
-import { ThemeProvider } from '@/components/theme-provider'
+import Providers from '@/components/providers'
 
 const urbanist = Urbanist({ subsets: ['latin'] })
 
@@ -20,11 +20,11 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${urbanist.className} antialiased`}>
-        <ThemeProvider attribute='class' defaultTheme='system'>
+        <Providers>
           <Navbar />
           {children}
           <Footer />
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   )
