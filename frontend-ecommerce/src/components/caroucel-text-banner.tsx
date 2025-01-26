@@ -15,8 +15,7 @@ const dataCaroucel = [
   {
     id: 2,
     title: 'Disfruta de tu café en línea',
-    description:
-      'Disfruta de tu café en línea sin tener que salir de tu casa. Disfruta de tu café en línea sin tener que salir de tu casa. Disfruta de tu café en línea sin tener que salir de tu casa.',
+    description: 'Disfruta de tu café en línea sin tener que salir de tu casa.',
     link: '#',
   },
   {
