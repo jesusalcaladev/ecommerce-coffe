@@ -1,3 +1,5 @@
+import { Category } from './category'
+
 export type Image = {
   id: string
   documentId: string
@@ -30,6 +32,7 @@ export type Product = {
   origin: string
   taste: string
   publishedAt: string
+  category: Category
   slug: string
   createdAt: string
   updatedAt: string
