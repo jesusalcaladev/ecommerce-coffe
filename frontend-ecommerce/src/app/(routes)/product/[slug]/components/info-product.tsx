@@ -2,7 +2,9 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { useCart } from '@/hooks/use-cart'
+import { useLovedProducts } from '@/hooks/use-loved-products'
 import { formatPrice } from '@/lib/format-prices'
+import { cn } from '@/lib/utils'
 import { Product } from '@/types/product'
 import { Heart } from 'lucide-react'
 
@@ -12,6 +14,13 @@ interface InfoProductProps {
 
 export default function InfoProduct({ product }: InfoProductProps) {
   const { addItem } = useCart()
+  const { addLovedProduct, lovedProducts, removeLovedProduct } =
+    useLovedProducts()
+
+  const isFavoriteProduct = lovedProducts.find(
+    (product) => product.id === product.id
+  )
+
   return (
     <div className='px-6'>
       <div className='justify-between mb-3 sm:flex'>
@@ -30,10 +39,20 @@ export default function InfoProduct({ product }: InfoProductProps) {
           Comprar
         </Button>
         <Heart
-          onClick={() => console.log('Add to love')}
+          onClick={() => {
+            if (isFavoriteProduct) {
+              removeLovedProduct(product.id)
+            } else {
+              addLovedProduct(product)
+            }
+          }}
           width={30}
           strokeWidth={1.25}
-          className='transition duration-300 cursor-pointer hover:fill-black'
+          className={cn(
+            'transition duration-300 cursor-pointer',
+            isFavoriteProduct && 'fill-black',
+            !isFavoriteProduct && 'hover:fill-black'
+          )}
         />
       </div>
     </div>
