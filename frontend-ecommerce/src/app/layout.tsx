@@ -4,6 +4,7 @@ import './globals.css'
 import Navbar from '../components/navigation/navbar'
 import Footer from '@/components/footer'
 import Providers from '@/components/providers'
+import { Toaster } from '@/components/ui/toaster'
 
 const urbanist = Urbanist({ subsets: ['latin'] })
 
@@ -25,6 +26,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </Providers>
+        <Toaster />
       </body>
     </html>
   )
