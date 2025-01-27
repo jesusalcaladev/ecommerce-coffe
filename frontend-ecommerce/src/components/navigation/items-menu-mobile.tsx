@@ -9,14 +9,14 @@ export default function ItemsMenuMobile() {
         <Menu strokeWidth={1.5} className='cursor-pointer' />
       </PopoverTrigger>
       <PopoverContent>
-        <Link className='block' href='/category/cafe-molido'>
-          Cafè Molido
+        <Link className='block' href='/category/cafes-con-leche'>
+          Cafè con leche
         </Link>
-        <Link className='block' href='/category/cafe-grano'>
-          Cafè en grano
+        <Link className='block' href='/category/cafes-clasicos'>
+          Cafè clasico
         </Link>
-        <Link className='block' href='/category/cafe-espuma'>
-          Cafè con Espuma
+        <Link className='block' href='/category/cafe-dulces'>
+          Cafè dulces
         </Link>
       </PopoverContent>
     </Popover>
