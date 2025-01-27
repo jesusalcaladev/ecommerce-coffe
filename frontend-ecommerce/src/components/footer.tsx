@@ -40,7 +40,7 @@ export default function Footer() {
         </div>
         <Separator className='my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg-my-8' />
         <span className='block text-sm text-gray-500 sm:text-center dark:text-gray-400'>
-          &copy; {new Date().getFullYear()} <Link href='#'>fluwCoffee</Link>
+          &copy; {new Date().getFullYear()} <Link href='#'>fluwCoffee </Link>
           Todos los derechos
         </span>
       </div>
