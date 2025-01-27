@@ -9,7 +9,7 @@ export default function BannerDiscount() {
         -25% al gasta 30$ en tu comprar, usa el código COFFE
       </h3>
       <div className='max-w-md mx-auto sm:flex justify-center gap-8 mt-5'>
-        <Link href={'#'} className={buttonVariants()}>
+        <Link href={'/product'} className={buttonVariants()}>
           Comprar
         </Link>
         <Link href={'#'} className={buttonVariants({ variant: 'outline' })}>
