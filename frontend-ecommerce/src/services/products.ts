@@ -29,3 +29,9 @@ export const getProductsField = async () => {
   const response = await GET(url)
   return response.data
 }
+
+export const getProductBySlug = async (slug: string) => {
+  const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/products?filters[slug][$eq]=${slug}&populate=*`
+  const response = await GET(url)
+  return response.data[0]
+}
