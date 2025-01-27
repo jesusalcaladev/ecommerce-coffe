@@ -12,6 +12,12 @@ export const getCategory = async () => {
   return response.data
 }
 
+export const getProducts = async () => {
+  const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/products?populate=*`
+  const response = await GET(url)
+  return response.data
+}
+
 export const getCategoryProducts = async (slug: string) => {
   const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/products?populate=*&filters[category][slug][$eq]=${slug}`
   const response = await GET(url)
