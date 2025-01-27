@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { BaggageClaim, Heart, ShoppingCart, User } from 'lucide-react'
+import { BaggageClaim, Heart, ShoppingCart } from 'lucide-react'
 import MenuList from './menu-list'
 import ItemsMenuMobile from './items-menu-mobile'
 import { ModeToggle } from '../mode-toogle'
@@ -35,12 +35,12 @@ export default function Navbar() {
             </div>
           )}
         </Link>
-        <Link href={'/love-coffee'}>
+        <Link href={'/loved-products'}>
           <Heart strokeWidth={1.25} className='cursor-pointer' />
         </Link>
-        <Link href={'/user'}>
+        {/* <Link href={'/user'}>
           <User strokeWidth={1.25} className='cursor-pointer' />
-        </Link>
+        </Link> */}
         <ModeToggle />
       </div>
     </header>
