@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 
 import * as React from 'react'
@@ -16,22 +17,22 @@ import {
 
 const components: { title: string; href: string; description: string }[] = [
   {
-    title: 'Cafe en grano',
-    href: '/category/grano',
+    title: 'Cafe con leche',
+    href: '/category/cafes-con-leche',
     description:
-      'Cafe en grano es un café con una variedad de tés y bebidas, que se enfoca en la calidad del producto.',
+      'Cafe con leche, difruta de un sabor que te llevara una sensacion magnifica de felicidad y alegria.',
   },
   {
-    title: 'Cafe Molido',
-    href: '/category/molido',
+    title: 'Cafe Clasicos',
+    href: '/category/cafes-clasicos',
     description:
-      'Cafe Molido es un café, con un sabor que te hara sentir una sensación de felicidad y alegría.',
+      'Cafe clasico es un cafe con un sabor especial que te hara sentir un momento especial.',
   },
   {
-    title: 'Cafe con Espuma',
-    href: '/category/espuma',
+    title: 'Cafe Dulces',
+    href: '/category/cafes-dulces',
     description:
-      'Cafe con Espuma es un café con la sensación de que estás disfrutando unas nubes de alegría y felicidad.',
+      'Cafe con dulce, difruta de una gran variedad de sabores deliciosos.',
   },
 ]
 
@@ -64,14 +65,8 @@ export default function MenuList() {
                   </Link>
                 </NavigationMenuLink>
               </li>
-              <ListItem href='/shop' title='Tienda'>
+              <ListItem href='/product' title='Tienda'>
                 Tienda de café en línea
-              </ListItem>
-              <ListItem href='/offers' title='Ofertas'>
-                Difruta tu café y obtén una oferta personalizada.
-              </ListItem>
-              <ListItem href='/accesorios' title='Accessorios'>
-                Accesorios para tu café en línea, como tazas, molinos, etc.
               </ListItem>
             </ul>
           </NavigationMenuContent>
@@ -93,7 +88,7 @@ export default function MenuList() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href='/accesorios' legacyBehavior passHref>
+          <Link href='/accessory' legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               Accesorios
             </NavigationMenuLink>
