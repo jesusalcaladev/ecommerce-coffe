@@ -10,7 +10,7 @@ export default function BannerProducts() {
           CafèExquisito
         </h4>
         <p className='my-2 text-lg'>Despierta tus sentidos con cada sorbo</p>
-        <Link href={'#'} className={buttonVariants()}>
+        <Link href={'/product'} className={buttonVariants()}>
           Comprar
         </Link>
       </div>
