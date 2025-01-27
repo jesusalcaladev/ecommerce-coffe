@@ -14,12 +14,16 @@ import { Card, CardContent } from './ui/card'
 import { Expand, ShoppingCart } from 'lucide-react'
 import IconButton from './icon-button'
 import { useRouter } from 'next/navigation'
+import { Badge } from './ui/badge'
+import { useCart } from '@/hooks/use-cart'
 
 const URL_BACKEND = process.env.NEXT_PUBLIC_BACKEND_URL
 
 export default function FeacturedProducts() {
   const { isLoading, data } = useFeaturedGetProducts()
   const router = useRouter()
+  const { addItem } = useCart()
+
   return (
     <div className='max-w-6xl py-4 mx-auto sm:py-16 sm:px-24'>
       <h3 className='px-6 text-3xl sm:pb-8'>Productos destacados</h3>
@@ -58,7 +62,7 @@ export default function FeacturedProducts() {
                                   strokeWidth={1.5}
                                 />
                               }
-                              onClick={() => console.log('Add to cart')}
+                              onClick={() => addItem(product)}
                             />
                           </div>
                         </div>
@@ -68,12 +72,10 @@ export default function FeacturedProducts() {
                           {product.productName}
                         </h3>
                         <div className='flex items-center justify-between gap-3'>
-                          <p className='px-2 py-1 text-white bg-black rounded-full dark:bg-white dark:text-black w-fit'>
-                            {product.taste}
-                          </p>
-                          <p className='px-2 py-1 text-white bg-yellow-900 rounded-full w-fit'>
+                          <Badge>{product.taste}</Badge>
+                          <Badge variant={'destructive'}>
                             {product.origin}
-                          </p>
+                          </Badge>
                         </div>
                       </div>
                     </Card>
