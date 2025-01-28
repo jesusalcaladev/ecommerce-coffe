@@ -4,7 +4,9 @@
   "description": "Coffee ecommerce project for strapi",
   "repository": "https://github.com/fluwdev/ecommerce-coffe.git",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev:frontend": "pnpm --filter frontend-ecommerce run dev",
+    "dev:backend": "pnpm --filter backend-ecommerce run develop",
+    "dev": "pnpm run --parallel dev:frontend dev:backend"
   },
   "keywords": [
     "fluwdev",
