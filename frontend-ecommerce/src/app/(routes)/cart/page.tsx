@@ -4,9 +4,29 @@ import { Separator } from '@/components/ui/separator'
 import { useCart } from '@/hooks/use-cart'
 import { formatPrice } from '@/lib/format-prices'
 import { CartItem } from './components/cart-item'
+import { loadStripe } from '@stripe/stripe-js'
+import { makePaymentRequest } from '@/services/payment'
 
 export default function CardPage() {
-  const { items } = useCart()
+  const { items, clearCart } = useCart()
+  const stripePromise = loadStripe(
+    process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ?? ''
+  )
+  const buyStripe = async () => {
+    try {
+      const stripe = await stripePromise
+      const res = await makePaymentRequest.post('/api/orders', {
+        products: items,
+      })
+      await stripe?.redirectToCheckout({
+        sessionId: res.data.stripeSession.id,
+      })
+      clearCart()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <div className='max-w-6xl px-4 py-16 mx-auto sm:px-6 lg:px-8'>
       <h1 className='text-3xl font-bold mb-5'>Carrito de compras</h1>
@@ -36,10 +56,7 @@ export default function CardPage() {
               </span>
             </div>
             <div className='flex items-center justify-center w-full mt-3'>
-              <Button
-                className='w-full'
-                onClick={() => console.log('Buy to card')}
-              >
+              <Button className='w-full' onClick={() => buyStripe()}>
                 Comprar
               </Button>
             </div>
