@@ -5,8 +5,7 @@
   "repository": "https://github.com/fluwdev/ecommerce-coffe.git",
   "scripts": {
     "dev:frontend": "pnpm --filter frontend-ecommerce run dev",
-    "dev:backend": "pnpm --filter backend-ecommerce run develop",
-    "dev": "pnpm run --parallel dev:frontend dev:backend"
+    "dev:backend": "pnpm --filter backend-ecommerce run develop"
   },
   "keywords": [
     "fluwdev",
