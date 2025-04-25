@@ -1,26 +1,22 @@
 'use client'
 import { Button } from '@/components/ui/button'
-import Image from 'next/image'
+import { useCart } from '@/hooks/use-cart'
 import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
 
 const PageSuccess = () => {
   const router = useRouter()
+  const { clearCart } = useCart()
+
+  useEffect(() => {
+    clearCart()
+  })
 
   return (
     <div className='max-w-5xl p-4 mx-auto sm:py-16 sm:px-24'>
       <div className='flex flex-col-reverse gap-2 sm:flex-row'>
-        <div className='flex justify-center md:min-w-[400px]'>
-          <Image
-            src='/success.jpg'
-            alt='Success'
-            width={250}
-            height={500}
-            className='rounded-lg'
-          />
-        </div>
-
         <div>
-          <h1 className='text-3xl'>¡Gracias por tu compra!</h1>
+          <h1 className='text-3xl'>👍¡Gracias por tu compra!</h1>
           <p className='my-3'>
             En breve, nuestro equipo se pondrá manos a la obra para seleccionar
             los granos más frescos y preparar tu envío con cuidado y dedicación.
