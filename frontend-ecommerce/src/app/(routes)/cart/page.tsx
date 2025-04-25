@@ -6,13 +6,23 @@ import { formatPrice } from '@/lib/format-prices'
 import { CartItem } from './components/cart-item'
 import { loadStripe } from '@stripe/stripe-js'
 import { makePaymentRequest } from '@/services/payment'
+import { useSession } from 'next-auth/react'
+import { toast } from '@/hooks/use-toast'
 
 export default function CardPage() {
   const { items, clearCart } = useCart()
+  const { status } = useSession()
   const stripePromise = loadStripe(
     process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ?? ''
   )
   const buyStripe = async () => {
+    if (status === 'unauthenticated') {
+      toast({
+        title: 'Inicia sesión',
+        description: 'Para comprar, debes iniciar sesión',
+      })
+      return
+    }
     try {
       const stripe = await stripePromise
       const res = await makePaymentRequest.post('/api/orders', {
@@ -42,7 +52,7 @@ export default function CardPage() {
           </ul>
         </div>
         <div className='max-w-xl'>
-          <div className='p-6 rounded-lg bg-slate-100'>
+          <div className='p-6 rounded-lg dark:bg-neutral-950 dark:border-[1px] bg-slate-100'>
             <p className='mb-3 text-lg font-semibold'>Resumen del pedido</p>
             <Separator />
             <div className='flex justify-between gap-5 my-4'>
