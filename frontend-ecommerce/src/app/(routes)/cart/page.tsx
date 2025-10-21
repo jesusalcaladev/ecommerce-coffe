@@ -1,4 +1,5 @@
 'use client'
+import React from 'react'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { useCart } from '@/hooks/use-cart'
@@ -53,7 +54,7 @@ export default function CardPage() {
         </div>
         <div className='max-w-xl'>
           <div className='p-6 rounded-lg dark:bg-neutral-950 dark:border-[1px] bg-slate-100'>
-            <p className='mb-3 text-lg font-semibold'>Resumen del pedido</p>
+            {React.createElement(Separator as any)}
             <Separator />
             <div className='flex justify-between gap-5 my-4'>
               <span className='flex flex-row gap-1'>
