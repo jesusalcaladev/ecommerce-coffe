@@ -3,7 +3,7 @@ import GoogleProvider from 'next-auth/providers/google'
 
 import type { NextAuthOptions } from 'next-auth'
 
-export const authOptions: NextAuthOptions = {
+const authOptions: NextAuthOptions = {
   theme: {
     brandColor: '#f8f8f8',
     colorScheme: 'light',
