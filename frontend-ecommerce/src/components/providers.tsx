@@ -12,7 +12,7 @@ export default function Providers({ children }: React.PropsWithChildren) {
     <SessionProvider>
       <ThemeProvider attribute='class' defaultTheme='system'>
         <QueryClientProvider client={queryClient}>
-          {children}
+          {children as any}
         </QueryClientProvider>
       </ThemeProvider>
     </SessionProvider>

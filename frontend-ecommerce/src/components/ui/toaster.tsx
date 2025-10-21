@@ -10,26 +10,34 @@ import {
   ToastViewport,
 } from "@/components/ui/toast"
 
+// cast toast components to any to avoid @types/react mismatch in JSX
+const ToastProviderAny = ToastProvider as any
+const ToastAny = Toast as any
+const ToastCloseAny = ToastClose as any
+const ToastDescriptionAny = ToastDescription as any
+const ToastTitleAny = ToastTitle as any
+const ToastViewportAny = ToastViewport as any
+
 export function Toaster() {
   const { toasts } = useToast()
 
   return (
-    <ToastProvider>
+    <ToastProviderAny>
       {toasts.map(function ({ id, title, description, action, ...props }) {
         return (
-          <Toast key={id} {...props}>
+          <ToastAny key={id} {...props}>
             <div className="grid gap-1">
-              {title && <ToastTitle>{title}</ToastTitle>}
+              {title && <ToastTitleAny>{title}</ToastTitleAny>}
               {description && (
-                <ToastDescription>{description}</ToastDescription>
+                <ToastDescriptionAny>{description}</ToastDescriptionAny>
               )}
             </div>
             {action}
-            <ToastClose />
-          </Toast>
+            <ToastCloseAny />
+          </ToastAny>
         )
       })}
-      <ToastViewport />
-    </ToastProvider>
+      <ToastViewportAny />
+    </ToastProviderAny>
   )
 }

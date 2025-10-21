@@ -10,6 +10,8 @@ import { useCart } from '@/hooks/use-cart'
 import { signIn, useSession } from 'next-auth/react'
 import { Button } from '../ui/button'
 
+const ButtonAny = Button as any
+
 export default function Navbar() {
   const { items } = useCart()
   const { data: session, status } = useSession()
@@ -51,9 +53,9 @@ export default function Navbar() {
             />
           </Link>
         ) : (
-          <Button onClick={() => signIn()} variant={'secondary'}>
+          <ButtonAny onClick={() => signIn()} variant={'secondary'}>
             Iniciar Session
-          </Button>
+          </ButtonAny>
         )}
         <ModeToggle />
       </div>

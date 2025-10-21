@@ -13,6 +13,9 @@ interface ProductProps {
   product: ProductType
 }
 
+const CardAny = Card as any
+const CardContentAny = CardContent as any
+
 const URL_BACKEND = process.env.NEXT_PUBLIC_BACKEND_URL
 
 export default function Product({ product }: ProductProps) {
@@ -21,8 +24,8 @@ export default function Product({ product }: ProductProps) {
   return (
     <li className='md:basis-1/2 lg:basis-1/3 group'>
       <div className='p-1'>
-        <Card className='py-4 border border-gray-200 shadow-none'>
-          <CardContent className='relative flex items-center justify-center px-6 py-2'>
+        <CardAny className='py-4 border border-gray-200 shadow-none'>
+          <CardContentAny className='relative flex items-center justify-center px-6 py-2'>
             <img
               src={`${URL_BACKEND}${product.images[0].url}`}
               alt={product.productName}
@@ -47,7 +50,7 @@ export default function Product({ product }: ProductProps) {
                 />
               </div>
             </div>
-          </CardContent>
+          </CardContentAny>
           <div className='flex justify-between gap-4 px-8'>
             <h3 className='text-lg font-bold'>{product.productName}</h3>
             <div className='flex items-center justify-between gap-3'>
@@ -58,7 +61,7 @@ export default function Product({ product }: ProductProps) {
           <div className='flex flex-col gap-2 px-8'>
             <p>{formatPrice(product.price)}</p>
           </div>
-        </Card>
+        </CardAny>
       </div>
     </li>
   )
