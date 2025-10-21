@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Urbanist } from 'next/font/google'
+import type { ReactNode } from 'react'
 import './globals.css'
 import Navbar from '../components/navigation/navbar'
 import Footer from '@/components/footer'
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: ReactNode
 }>) {
   return (
     <html lang='en'>
