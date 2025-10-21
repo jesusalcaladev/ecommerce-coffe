@@ -1,5 +1,4 @@
 'use client'
-import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
 
 const PageSuccess = () => {
@@ -19,10 +18,16 @@ const PageSuccess = () => {
             información sobre el estado de tu pedido y los pasos a seguir.
           </p>
           <p className='my-3'>¡Disfruta de tus productos!</p>
+          <p className='my-3'>¡Disfruta de tus productos!</p>
 
-          <Button onClick={() => router.push('/')}>Volver a la tienda</Button>
+          <button
+            className='inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700'
+            onClick={() => router.push('/')}
+          >
+            Volver a la tienda
+          </button>
         </div>
-      </div>
+        </div>
     </div>
   )
 }

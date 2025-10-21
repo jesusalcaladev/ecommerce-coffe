@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button'
 import { signOut, useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 
+const ButtonAny = Button as unknown as any
+
 const PageUser = () => {
   const { data: session, status } = useSession()
   const router = useRouter()
@@ -20,13 +22,11 @@ const PageUser = () => {
             <p className='font-bold text-2xl'>{session?.user?.name}</p>
             <p>{session?.user?.email}</p>
           </div>
-        </div>
-      )}
-
+        </div>)}
       {status === 'authenticated' ? (
-        <Button variant={'outline'} className='mt-4' onClick={() => signOut()}>
+        <ButtonAny variant={'outline'} className='mt-4' onClick={() => signOut()}>
           Cerrar Sesión
-        </Button>
+        </ButtonAny>
       ) : (
         <>
           <h1 className='text-2xl mb-2'>No tienes sesión iniciada</h1>
@@ -34,7 +34,7 @@ const PageUser = () => {
             Para acceder a tu cuenta, por favor inicia sesión. Si no tienes una
             cuenta, puedes registrarte.
           </p>
-          <Button onClick={() => router.push('/')}>Ir a la tienda</Button>
+          <ButtonAny onClick={() => router.push('/')}>Ir a la tienda</ButtonAny>
         </>
       )}
     </div>

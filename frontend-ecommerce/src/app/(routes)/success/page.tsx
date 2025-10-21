@@ -1,8 +1,11 @@
 'use client'
+import React from 'react'
 import { Button } from '@/components/ui/button'
 import { useCart } from '@/hooks/use-cart'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
+
+const ButtonAny = Button as unknown as React.ComponentType<any>
 
 const PageSuccess = () => {
   const router = useRouter()
@@ -29,7 +32,7 @@ const PageSuccess = () => {
           </p>
           <p className='my-3'>¡Disfruta del café!</p>
 
-          <Button onClick={() => router.push('/')}>Volver a la tienda</Button>
+          <ButtonAny onClick={() => router.push('/')}>Volver a la tienda</ButtonAny>
         </div>
       </div>
     </div>
