@@ -8,6 +8,8 @@ import { cn } from '@/lib/utils'
 import { Product } from '@/types/product'
 import { Heart } from 'lucide-react'
 
+const ButtonAny: any = Button
+
 interface InfoProductProps {
   product: Product
 }
@@ -30,14 +32,10 @@ export default function InfoProduct({ product }: InfoProductProps) {
           <Badge variant={'destructive'}>{product.origin}</Badge>
         </div>
       </div>
-      <Separator className='my-4' />
-      <p className=''>{product.description}</p>
-      <Separator className='my-4' />
-      <p className='my-4 text-2xl'>{formatPrice(product.price)}</p>
       <div className='flex items-center gap-5'>
-        <Button className='w-full' onClick={() => addItem(product)}>
+        <ButtonAny className='w-full' onClick={() => addItem(product)}>
           Comprar
-        </Button>
+        </ButtonAny>
         <Heart
           onClick={() => {
             if (isFavoriteProduct) {

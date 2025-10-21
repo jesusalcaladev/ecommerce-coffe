@@ -21,6 +21,9 @@ export default function LovedItemProduct({ product }: LovedItemProductProps) {
     removeLovedProduct(product.id)
   }
 
+  // Workaround for mismatched @types/react versions: cast Button to any locally
+  const SafeButton = Button as unknown as any
+
   return (
     <li className='flex border-b py-6'>
       <ProductImageMinuature
@@ -35,9 +38,9 @@ export default function LovedItemProduct({ product }: LovedItemProductProps) {
             <Badge>{product.taste}</Badge>
             <Badge variant={'destructive'}>{product.origin}</Badge>
           </div>
-          <Button className='mt-5 rounded-full' onClick={addToCheckout}>
+          <SafeButton className='mt-5 rounded-full' onClick={addToCheckout}>
             Añadir al carrito
-          </Button>
+          </SafeButton>
         </div>
         <div>
           <button

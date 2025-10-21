@@ -17,6 +17,13 @@ interface CarouselProductProps {
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL
 
+// cast UI components to any to avoid React types mismatch in JSX
+const CarouselAny = Carousel as any
+const CarouselContentAny = CarouselContent as any
+const CarouselItemAny = CarouselItem as any
+const CarouselNextAny = CarouselNext as any
+const CarouselPreviousAny = CarouselPrevious as any
+
 export default function CarouselProduct({ images }: CarouselProductProps) {
   const [api, setApi] = useState<CarouselApi>()
   const [current, setCurrent] = useState(0)
@@ -36,20 +43,20 @@ export default function CarouselProduct({ images }: CarouselProductProps) {
 
   return (
     <div className='sm:px-16'>
-      <Carousel setApi={setApi}>
-        <CarouselContent>
+      <CarouselAny setApi={setApi}>
+        <CarouselContentAny>
           {images?.map?.((image) => (
-            <CarouselItem key={image.id}>
+            <CarouselItemAny key={image.id}>
               <img
                 src={`${BACKEND_URL}${image.url}`}
                 className='rounded-lg w-full h-full'
               />
-            </CarouselItem>
+            </CarouselItemAny>
           ))}
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
+        </CarouselContentAny>
+        <CarouselPreviousAny />
+        <CarouselNextAny />
+      </CarouselAny>
       <div className='py-2 text-center text-sm text-muted-foreground'>
         Imagenes {current} para {count}
       </div>

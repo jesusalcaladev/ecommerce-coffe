@@ -1,5 +1,4 @@
 'use client'
-import { Separator } from '@/components/ui/separator'
 import { useGetProductsCategory } from '@/hooks/use-get-products-category'
 import { useParams } from 'next/navigation'
 import SkeletonSchema from '@/components/skeleton-schema'
@@ -41,7 +40,6 @@ export default function CategorySlugPage() {
           {data[0]?.category?.categoryName}
         </h1>
       )}
-      <Separator />
       <div className='sm:flex sm:justify-between'>
         <div className='sm:w-[350px] sm:mt-5 p-6'>
           <FilterOrigin onChangeFilter={handleFilterOrigin} />
