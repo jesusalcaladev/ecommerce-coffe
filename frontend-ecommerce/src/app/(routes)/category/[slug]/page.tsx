@@ -27,7 +27,7 @@ export default function CategorySlugPage() {
     if (query.get('origin')) {
       setFilterOrigin(query.get('origin') as string)
     }
-  }, [])
+  }, [query])
 
   const filtersProducts =
     filterOrigin === ''
